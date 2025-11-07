@@ -18,14 +18,15 @@ const App = () => {
     {showLogin?<LoginPopUp setShowLogin = {setShowLogin}/>:<></>}
     <div className="app">
       <Navbar setShowLogin ={setShowLogin}/>
+      <Home/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<PlaceOrder />} />
-        <Route
+        {/* <Route
           path="*"
           element={<h2 className="text-center py-10">Page Not Found</h2>}
-        />
+        /> */}
       </Routes>
       <DownloadApp />
     </div>
