@@ -1,15 +1,16 @@
 {
-  "name": "foodDeliveryApp",
+  "name": "project",
+  "homepage": "https://shatansh6.github.io/Food-Delivery-App-react/",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "type": "module",
-  "homepage": "https://shatansh6.github.io/foodDeliveryApp/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist",
-    "lint": "eslint ."
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",
