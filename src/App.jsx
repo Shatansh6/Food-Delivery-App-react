@@ -26,10 +26,7 @@ const App = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<PlaceOrder />} />
-        <Route
-          path="*"
-          element={<h2 className="text-center py-10">Page Not Found</h2>}
-        />
+        <Route path="*" element={<Home/>} />
       </Routes>
       <DownloadApp />
       <Footer />
