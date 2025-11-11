@@ -5,15 +5,23 @@ export const StoreContext = createContext();
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
+  const [isInitialized, setIsInitialized] = useState(false); // ✅ guard
 
+  // ✅ Load cart from localStorage once on mount
   useEffect(() => {
     const savedCart = localStorage.getItem("cartItems");
-    if (savedCart) setCartItems(JSON.parse(savedCart));
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+    }
+    setIsInitialized(true);
   }, []);
 
+  // ✅ Save cart only after initialization
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (isInitialized) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems, isInitialized]);
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({
