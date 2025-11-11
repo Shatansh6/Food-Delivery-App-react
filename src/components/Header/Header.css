@@ -1,31 +1,38 @@
-.header{
+.header {
   height: 34vw;
-  margin: 30px auto;
-  background: url('/header_img.png') no-repeat;
-  background-size:contain;
+  width: 100%;
+  background: url('/header_img.png') no-repeat center;
+  background-size: contain;
+  background-position: center;
   position: relative;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  overflow: hidden;
 }
-.header-content{
+
+.header-content {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  align-items: start;
+  align-items:start;
+  text-align:start;
   gap: 1.5vw;
   max-width: 50%;
-  bottom: 10%;
-  left: 6vw;
   animation: fadeIn 3s;
 }
-.header-content h1{
-  font-weight: bolder;
+
+.header-content h1 {
+  font-weight: 700;
   font-size: 45px;
   color: white;
 }
-.header-content p{
+
+.header-content p {
   color: white;
   font-size: 1.3vw;
 }
-.header-content button{
+
+.header-content button {
   border: none;
   color: #747474;
   font-weight: 500;
@@ -33,26 +40,36 @@
   background-color: white;
   font-size: 15px;
   border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-@media (max-width:1050px){
-  .header-content h1{
+
+.header-content button:hover {
+  background-color: #ff6347;
+  color: white;
+}
+
+/* 🔹 Responsive Adjustments */
+@media (max-width: 1050px) {
+  .header-content h1 {
     font-size: 35px;
   }
-  .header-content{
-    max-width: 45%;
+  .header-content {
+    max-width: 60%;
   }
 }
-@media (max-width:750px){
-  .header-content{
-    max-width: 65%;
+
+@media (max-width: 750px) {
+  .header-content {
+    max-width: 80%;
   }
-  .header-content h1{
-    font-size: 30px;
+  .header-content h1 {
+    font-size: 28px;
   }
-  .header-content p{
+  .header-content p {
     display: none;
   }
-  .header-content button{
+  .header-content button {
     padding: 2vw 4vw;
   }
 }

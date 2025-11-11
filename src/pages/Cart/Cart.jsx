@@ -1,9 +1,8 @@
 import React, { useContext, useMemo } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../Context/StoreContext";
-
 const Cart = () => {
-  const { food_list, cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const { food_list, cartItems, addToCart, removeFromCart} = useContext(StoreContext);
 
   if (!food_list || !cartItems) {
     return <p className="loading-text">Loading your cart...</p>;
@@ -33,10 +32,10 @@ const Cart = () => {
 
         {!isCartEmpty ? (
           food_list.map((item) => {
+            
             const qty = cartItems[item.id] || 0;
-            if (qty === 0) return null;
-
-            return (
+            if (qty === 0) return
+            return (              
               <div className="cart-item" key={item.id}>
                 <img
                   src={item.image}

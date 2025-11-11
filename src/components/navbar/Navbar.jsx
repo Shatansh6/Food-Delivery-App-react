@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+import { StoreContext } from "../../Context/StoreContext";
+import { MdOutlineNightlight, MdOutlineLightMode } from "react-icons/md";
 
-const Navbar = ({ setShowLogin }) => {
+const Navbar = ({ setShowLogin,isDark,toggleMode }) => {
   const [menu, setMenu] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const { count } = useContext(StoreContext);
+  
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   return (
     <div className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-      {/* Logo */}
       <Link to="/">
         <img src={assets.logo} alt="logo" className="logo" />
       </Link>
 
-      {/* Search */}
       <div className="search">
-        <input type="text" placeholder="search" />
+        <input onChange type="text" placeholder="search" />
         <img className="search-img" src={assets.search_icon} alt="" />
       </div>
 
-      {/* Menu Items */}
       <ul className="navbar-menu">
         <Link to="/">
           <li
@@ -37,7 +37,6 @@ const Navbar = ({ setShowLogin }) => {
             Home
           </li>
         </Link>
-        
         <ScrollLink
           to="explore-menu"
           smooth={true}
@@ -47,7 +46,6 @@ const Navbar = ({ setShowLogin }) => {
         >
           <li className={menu === "menu" ? "active" : ""}>Menu</li>
         </ScrollLink>
-
         <ScrollLink
           to="download-app"
           smooth={true}
@@ -55,9 +53,7 @@ const Navbar = ({ setShowLogin }) => {
           offset={-80}
           onClick={() => setMenu("mobile-app")}
         >
-          <li className={menu === "mobile-app" ? "active" : ""}>
-            Mobile-App
-          </li>
+          <li className={menu === "mobile-app" ? "active" : ""}>Mobile-App</li>
         </ScrollLink>
 
         <ScrollLink
@@ -67,9 +63,7 @@ const Navbar = ({ setShowLogin }) => {
           offset={-80}
           onClick={() => setMenu("contact-us")}
         >
-          <li className={menu === "contact-us" ? "active" : ""}>
-            Contact-Us
-          </li>
+          <li className={menu === "contact-us" ? "active" : ""}>Contact-Us</li>
         </ScrollLink>
       </ul>
 
@@ -79,12 +73,27 @@ const Navbar = ({ setShowLogin }) => {
           <Link to="/cart">
             <img src={assets.basket_icon} alt="cart" />
           </Link>
-          <div className="dot"></div>
+
+          {count > 0 && <div className="dot">{count}</div>}
         </div>
         <button onClick={() => setShowLogin(true)}>Sign in</button>
+        <div onClick={toggleMode} className="darkmode">
+          {isDark ? (
+            <MdOutlineLightMode
+              size={24}
+              color="black "
+              className="glow-tomato"
+            />
+          ) : (
+            <MdOutlineNightlight
+              size={28}
+              color="white"
+              className="glow-tomato"
+            />
+          )}
+        </div>
       </div>
     </div>
   );
 };
-
 export default Navbar;

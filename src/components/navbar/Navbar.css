@@ -1,9 +1,10 @@
 .navbar {
   padding: 14px 0;
   display: flex;
+  padding-left: 50px;
+  padding-right: 50px;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff; /* solid white at top */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -126,13 +127,16 @@
 }
 
 .cart-icon .dot {
-  position: absolute;
-  min-width: 9px;
-  min-height: 9px;
-  background-color: tomato;
-  border-radius: 50%;
-  top: -4px;
-  right: -4px;
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 5px;
+  color: #49557e;
+font-weight: bolder;
+font-size: xx-small;
+  top: -10px;
+  right: -8px;
 }
 
 /* --- RESPONSIVE --- */

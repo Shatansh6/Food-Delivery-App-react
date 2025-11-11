@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
-
 *{
 padding: 0px;
 margin: 0px;
@@ -29,4 +28,9 @@ a{
   100%{
     opacity: 1;
   }
+}
+.glow-tomato {
+  filter: drop-shadow(0 0 4px tomato)
+          drop-shadow(0 0 8px tomato)
+          drop-shadow(0 0 12px tomato);
 }

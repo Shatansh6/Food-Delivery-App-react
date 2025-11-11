@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 50px;
 }
 .explore-menu h1{
   font-size: larger;
