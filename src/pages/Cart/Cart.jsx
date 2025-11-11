@@ -1,8 +1,31 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useEffect } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../Context/StoreContext";
+
 const Cart = () => {
-  const { food_list, cartItems, addToCart, removeFromCart} = useContext(StoreContext);
+  const { food_list, cartItems, addToCart, removeFromCart, setCartItems } =
+    useContext(StoreContext);
+
+  // 🧠 Load cart from localStorage when component mounts
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cartItems");
+    if (savedCart) {
+      try {
+        setCartItems(JSON.parse(savedCart));
+      } catch {
+        console.error("Error parsing saved cart data.");
+      }
+    }
+  }, [setCartItems]);
+
+  // 💾 Save cart to localStorage whenever cartItems changes
+  useEffect(() => {
+    if (cartItems && Object.keys(cartItems).length > 0) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } else {
+      localStorage.removeItem("cartItems");
+    }
+  }, [cartItems]);
 
   if (!food_list || !cartItems) {
     return <p className="loading-text">Loading your cart...</p>;
@@ -32,10 +55,10 @@ const Cart = () => {
 
         {!isCartEmpty ? (
           food_list.map((item) => {
-            
             const qty = cartItems[item.id] || 0;
-            if (qty === 0) return
-            return (              
+            if (qty === 0) return null;
+
+            return (
               <div className="cart-item" key={item.id}>
                 <img
                   src={item.image}

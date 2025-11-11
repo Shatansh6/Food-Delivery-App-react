@@ -1,10 +1,19 @@
-import React, { createContext, useState, useMemo } from "react";
+import React, { createContext, useState, useMemo, useEffect } from "react";
 import { food_list } from "../assets/assets";
 
 export const StoreContext = createContext();
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cartItems");
+    if (savedCart) setCartItems(JSON.parse(savedCart));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({
@@ -23,9 +32,18 @@ const StoreContextProvider = (props) => {
     });
   };
 
-  // 🧠 Derived count (always accurate)
-  const count = useMemo(() => {
-    return Object.values(cartItems).reduce((sum, qty) => sum + qty, 0);
+  const clearCart = () => setCartItems({});
+
+  const count = useMemo(
+    () => Object.values(cartItems).reduce((sum, qty) => sum + qty, 0),
+    [cartItems]
+  );
+
+  const totalPrice = useMemo(() => {
+    return Object.entries(cartItems).reduce((total, [id, qty]) => {
+      const item = food_list.find((f) => f._id === id);
+      return item ? total + item.price * qty : total;
+    }, 0);
   }, [cartItems]);
 
   const contextValue = {
@@ -33,8 +51,11 @@ const StoreContextProvider = (props) => {
     cartItems,
     addToCart,
     removeFromCart,
+    clearCart,
     count,
+    totalPrice,
   };
+
   return (
     <StoreContext.Provider value={contextValue}>
       {props.children}
