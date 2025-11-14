@@ -39,7 +39,6 @@ const StoreContextProvider = (props) => {
       return updated;
     });
   };
-
   const clearCart = () => setCartItems({});
 
   const count = useMemo(

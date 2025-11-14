@@ -1,12 +1,14 @@
 import React, { useContext, useMemo, useEffect } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../Context/StoreContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { food_list, cartItems, addToCart, removeFromCart, setCartItems } =
     useContext(StoreContext);
 
-  // 🧠 Load cart from localStorage when component mounts
+  const navigate = useNavigate();  // <-- FIX
+
   useEffect(() => {
     const savedCart = localStorage.getItem("cartItems");
     if (savedCart) {
@@ -18,7 +20,6 @@ const Cart = () => {
     }
   }, [setCartItems]);
 
-  // 💾 Save cart to localStorage whenever cartItems changes
   useEffect(() => {
     if (cartItems && Object.keys(cartItems).length > 0) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -60,36 +61,16 @@ const Cart = () => {
 
             return (
               <div className="cart-item" key={item.id}>
-                <img
-                  src={item.image}
-                  alt={`${item.name} image`}
-                  className="cart-item-img"
-                />
+                <img src={item.image} alt={item.name} className="cart-item-img" />
                 <p>{item.name}</p>
                 <p>₹{item.price}</p>
                 <div className="quantity-controls">
-                  <button
-                    className="qty-btn"
-                    onClick={() => removeFromCart(item.id)}
-                  >
-                    −
-                  </button>
+                  <button className="qty-btn" onClick={() => removeFromCart(item.id)}>−</button>
                   <span>{qty}</span>
-                  <button
-                    className="qty-btn"
-                    onClick={() => addToCart(item.id)}
-                  >
-                    +
-                  </button>
+                  <button className="qty-btn" onClick={() => addToCart(item.id)}>+</button>
                 </div>
                 <p>₹{item.price * qty}</p>
-                <button
-                  className="remove-btn"
-                  onClick={() => removeFromCart(item.id)}
-                  title="Remove item"
-                >
-                  ❌
-                </button>
+                <button className="remove-btn" onClick={() => removeFromCart(item.id)}>❌</button>
               </div>
             );
           })
@@ -105,7 +86,7 @@ const Cart = () => {
             <button
               className="checkout-btn"
               disabled={totalAmount <= 0}
-              onClick={() => alert("Proceeding to checkout...")}
+              onClick={() => navigate("/checkout")}
             >
               Proceed to Checkout
             </button>

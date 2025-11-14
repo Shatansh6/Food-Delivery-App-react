@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home/Home";
@@ -7,30 +7,42 @@ import Cart from "./pages/cart/Cart";
 import Footer from "./components/Footer/Footer";
 import DownloadApp from "./components/DownloadApp/DownloadApp";
 import LoginPopUp from "./components/LoginPopUp/LoginPopUp";
-import StoreContextProvider from "./Context/StoreContext";
+import Checkout from "./pages/Checkout/Checkout";
+
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const toggleMode = () => setIsDark((prev) => !prev);
-  useEffect(() => {
-    document.body.style.transition = "background-color 0.5s ease";
-    document.body.style.backgroundColor = isDark ? "#0f172a" : "#ffffff"; 
-    // document.body.style.color = isDark ? "gray" : "black";
-  }, [isDark]);
+  const [searchText, setSearchText] = useState("");
+
+  const toggleMode = () => {
+    setIsDark(!isDark);
+    document.body.classList.toggle("dark-mode");
+  };
 
   return (
-    <StoreContextProvider>
+    <>
+      <Navbar
+        setShowLogin={setShowLogin}
+        isDark={isDark}
+        toggleMode={toggleMode}
+        setSearchText={setSearchText}
+      />
+
+      {/* ⭐ THIS WAS MISSING — your popup! */}
       {showLogin && <LoginPopUp setShowLogin={setShowLogin} />}
-      <Navbar setShowLogin={setShowLogin} isDark={isDark} toggleMode={toggleMode} />
+
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home searchText={searchText} />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<PlaceOrder />} />
-        <Route path="*" element={<Home/>} />
+        <Route path="/checkout" element={<Checkout />} />
+
+        <Route path="*" element={<Home />} />
       </Routes>
+
       <DownloadApp />
       <Footer />
-    </StoreContextProvider>
+    </>
   );
 };
 

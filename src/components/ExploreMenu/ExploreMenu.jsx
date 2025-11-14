@@ -19,7 +19,7 @@ const ExploreMenu = ({ category, setCategory }) => {
               if (category === item.name) {
                 setCategory("All");
               } else {
-                setCategory(item.name);
+                setCategory(item.name);1
               }
             }}
             className="explore-item"

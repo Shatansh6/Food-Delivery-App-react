@@ -34,3 +34,45 @@ a{
           drop-shadow(0 0 8px tomato)
           drop-shadow(0 0 12px tomato);
 }
+
+/* DARK MODE GLOBAL */
+.dark-mode {
+  --bg: #121212;
+  --text: #ffffff;
+  --card: #1e1e1e;
+  --border: #333;
+}
+
+body {
+  background: var(--bg, #ffffff);
+  color: var(--text, #000000);
+}
+
+/* Navbar */
+.navbar {
+  background: var(--card, #ffffff);
+  border-bottom: 1px solid var(--border, #e0e0e0);
+}
+
+.navbar input {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.navbar-menu li {
+  color: var(--text);
+}
+
+/* Food items */
+.food-item {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Footer */
+footer {
+  background: var(--card);
+  color: var(--text);
+}
