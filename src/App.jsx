@@ -28,7 +28,6 @@ const App = () => {
         setSearchText={setSearchText}
       />
 
-      {/* ⭐ THIS WAS MISSING — your popup! */}
       {showLogin && <LoginPopUp setShowLogin={setShowLogin} />}
 
       <Routes>
@@ -36,8 +35,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<PlaceOrder />} />
         <Route path="/checkout" element={<Checkout />} />
-
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<Home searchText={searchText} />} />
       </Routes>
 
       <DownloadApp />

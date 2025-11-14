@@ -28,10 +28,11 @@ const Navbar = ({ setShowLogin, isDark, toggleMode, setSearchText }) => {
       {/* SEARCH BAR */}
       <div className="search">
         <input
-          type="text"
-          placeholder="search"
-          onChange={(e) => setSearchText(e.target.value)}
-        />
+  type="text"
+  placeholder="search"
+  onChange={(e) => setSearchText(e.target.value)}
+/>
+
         <img className="search-img" src={assets.search_icon} alt="" />
       </div>
 
