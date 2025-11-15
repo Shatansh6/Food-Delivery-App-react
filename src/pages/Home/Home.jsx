@@ -12,7 +12,7 @@ const Home = ({ searchText }) => {
       <Header />
       <ExploreMenu category={category} setCategory={setCategory} />
       <FoodDisplay category={category} searchText={searchText} />
-      <DownloadApp/>
+      {/* <DownloadApp/> */}
     </div>
   );
 };

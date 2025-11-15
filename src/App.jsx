@@ -37,7 +37,6 @@ const App = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<Home searchText={searchText} />} />
       </Routes>
-
       <DownloadApp />
       <Footer />
     </>
