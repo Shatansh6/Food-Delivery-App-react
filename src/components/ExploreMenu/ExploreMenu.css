@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 70px;
+  margin-right: 70px;
   margin-top: 50px;
 }
 .explore-menu h1{
@@ -50,8 +50,30 @@
   padding: 2px;
   border-radius: 50%;
 }
-@media (max-width:1050px){
-  .explore-menu p{
-    font-size: 15px;
+@media (max-width: 768px) {
+  .explore-menu h1 {
+    font-size: 20px;
+  }
+
+  .explore-menu-text {
+    font-size: 14px;
+  }
+
+  .explore-menu-list {
+    gap: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .explore-menu {
+    margin-top: 30px;
+    padding: 0 16px;
+  }
+
+  .explore-item {
+    min-width: 80px;
+  }
+
+  .explore-item p {
+    font-size: 13px;
   }
 }

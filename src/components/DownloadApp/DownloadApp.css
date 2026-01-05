@@ -52,17 +52,49 @@
   opacity: 0.9;
 }
 
-/* Responsive tweaks */
 @media (max-width: 768px) {
+  .download-app {
+    padding: 60px 16px;
+    margin: 60px auto;
+    border-radius: 16px;
+  }
+
   .download-heading {
     font-size: 32px;
   }
 
   .download-subtext {
     font-size: 16px;
+    margin-bottom: 30px;
   }
 
   .store-btn {
     width: 150px;
+  }
+}
+@media (max-width: 480px) {
+  .download-app {
+    padding: 40px 14px;
+    margin: 40px auto;
+    width: 94%;
+    border-radius: 14px;
+  }
+
+  .download-heading {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .download-subtext {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .download-buttons {
+    gap: 16px;
+  }
+
+  .store-btn {
+    width: 130px;
   }
 }

@@ -26,7 +26,7 @@ const Checkout = () => {
 
   return (
     <div className="checkout-page">
-      <h2>Checkout</h2>
+      <h1 className="flex justify-center text-3xl">Checkout</h1>
 
       <div className="checkout-container">
         {/* LEFT: Delivery Form */}

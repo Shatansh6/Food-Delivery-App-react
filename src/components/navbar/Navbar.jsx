@@ -95,15 +95,6 @@ const Navbar = ({ setShowLogin, isDark, toggleMode, setSearchText }) => {
 
         {/* Login */}
         <button onClick={() => setShowLogin(true)}>Sign in</button>
-
-        {/* DARK MODE */}
-        <div onClick={toggleMode} className="darkmode">
-          {isDark ? (
-            <MdOutlineLightMode size={24} className="glow-tomato" />
-          ) : (
-            <MdOutlineNightlight size={24} className="glow-tomato" />
-          )}
-        </div>
       </div>
     </div>
   );

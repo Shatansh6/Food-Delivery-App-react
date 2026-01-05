@@ -12,7 +12,7 @@ function Footer() {
             neque enim aspernatur provident perferendis sed culpa velit vero
             suscipit voluptatum.
           </p>
-          <div className="social-icon flex gap-2">
+          <div className="social-icon flex gap-5">
             <img  src={assets.facebook_icon} alt="" />
             <img src={assets.twitter_icon} alt="" />
             <img src={assets.linkedin_icon} alt="" />
