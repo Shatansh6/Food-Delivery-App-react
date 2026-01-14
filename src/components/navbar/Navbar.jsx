@@ -82,10 +82,8 @@ const Navbar = ({ setShowLogin, isDark, toggleMode, setSearchText }) => {
         </ScrollLink>
       </ul>
 
-      {/* RIGHT SIDE */}
       <div className="navbar-right">
 
-        {/* Cart */}
         <div className="cart-icon">
           <Link to="/cart">
             <img src={assets.basket_icon} alt="cart" />
@@ -93,7 +91,6 @@ const Navbar = ({ setShowLogin, isDark, toggleMode, setSearchText }) => {
           {count > 0 && <div className="dot">{count}</div>}
         </div>
 
-        {/* Login */}
         <button onClick={() => setShowLogin(true)}>Sign in</button>
       </div>
     </div>
