@@ -1,24 +1,33 @@
+/* =========================
+   FOOTER BASE
+   ========================= */
+
 .footer {
   background-color: #1f1f1f;
   color: #d9d9d9;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 6vw 25px;
+  padding: 60px 8vw 25px;
   gap: 40px;
 }
 
+/* =========================
+   FOOTER CONTENT
+   ========================= */
+
 .footer-content {
   width: 100%;
-  max-width: 1200px;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 70px;
+  gap: 80px;
   align-items: start;
 }
 
+/* =========================
+   LEFT SECTION
+   ========================= */
 
-/* --- LEFT SECTION --- */
 .footer .left img {
   width: 150px;
 }
@@ -30,6 +39,13 @@
   max-width: 400px;
 }
 
+/* Social icons */
+.footer .social-icon {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+}
+
 .footer .social-icon img {
   height: 24px;
   width: 24px;
@@ -37,35 +53,25 @@
   transition: transform 0.2s ease, filter 0.2s ease;
   filter: brightness(0.9);
 }
-.footer .social-icon {
-  display: flex;
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.footer .center h2,
-.footer .right h2 {
-  font-size: 16px;
-}
-
-.footer .center li,
-.footer .right li {
-  font-size: 14px;
-}
 
 .footer .social-icon img:hover {
   transform: scale(1.15);
   filter: brightness(1.2) saturate(1.2);
 }
 
-/* --- CENTER SECTION --- */
-.footer .center h2 {
+/* =========================
+   CENTER SECTION
+   ========================= */
+
+.footer .center h2,
+.footer .right h2 {
   color: #fff;
   margin-bottom: 10px;
   letter-spacing: 1px;
 }
 
-.footer .center ul {
+.footer .center ul,
+.footer .right ul {
   list-style: none;
   padding: 0;
 }
@@ -83,17 +89,9 @@
   transform: translateX(4px);
 }
 
-/* --- RIGHT SECTION --- */
-.footer .right h2 {
-  color: #fff;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-.footer .right ul {
-  list-style: none;
-  padding: 0;
-}
+/* =========================
+   RIGHT SECTION
+   ========================= */
 
 .footer .right li {
   font-size: 15px;
@@ -101,7 +99,10 @@
   margin-top: 8px;
 }
 
-/* --- DIVIDER --- */
+/* =========================
+   DIVIDER & COPYRIGHT
+   ========================= */
+
 .footer hr {
   width: 100%;
   height: 1px;
@@ -109,7 +110,6 @@
   background-color: #444;
 }
 
-/* --- COPYRIGHT --- */
 .footer .copyright {
   font-size: 14px;
   color: #999;
@@ -117,9 +117,28 @@
   margin-top: 10px;
   letter-spacing: 0.5px;
 }
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .footer {
+    padding: 50px 6vw 22px;
+  }
+
+  .footer-content {
+    gap: 50px;
+    grid-template-columns: 1.5fr 1fr 1fr;
+  }
+}
+
+/* Mobile */
 @media (max-width: 750px) {
   .footer {
-    padding: 40px 20px 20px;
+    padding: 45px 16px 20px;
+    gap: 32px;
   }
 
   .footer-content {
@@ -127,24 +146,34 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 30px;
-  }
-
-  .footer .left img {
-    margin-bottom: 10px;
+    gap: 32px;
   }
 
   .footer .left p {
     max-width: 100%;
-    font-size: 13px;
   }
 
   .footer .social-icon {
     justify-content: center;
   }
 
-  .footer .center ul,
-  .footer .right ul {
-    align-items: center;
+  .footer .center li,
+  .footer .right li {
+    font-size: 14px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  .footer {
+    padding: 40px 12px 18px;
+  }
+
+  .footer .left img {
+    width: 130px;
+  }
+
+  .footer .copyright {
+    font-size: 13px;
   }
 }

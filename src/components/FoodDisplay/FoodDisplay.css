@@ -1,79 +1,69 @@
-/* ===== FOOD DISPLAY CONTAINER ===== */
+/* =========================
+   FOOD DISPLAY
+   ========================= */
+
 .food-display {
-  margin: 20px auto;
-  padding: 0 24px;
-  max-width: 1400px;
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
-/* ===== GRID LAYOUT ===== */
 .food-display-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  margin-top: 10px;
+  gap: 30px;
+  row-gap: 50px;
 }
 
-/* ===== FOOD CARD ===== */
-.food-item {
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  border: 1px solid transparent;
-}
+/* =========================
+   RESPONSIVE
+   ========================= */
 
-/* ===== IMAGE ===== */
-.food-item img {
-  width: 100%;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-/* ===== HOVER EFFECT (DESKTOP ONLY) ===== */
-.food-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  border-color: rgba(255, 99, 71, 0.35);
-}
-
-.food-item:hover img {
-  transform: scale(1.06);
-}
-
-
-/* ===== TABLETS ===== */
-@media (max-width: 768px) {
+/* Tablets */
+@media (max-width: 1050px) {
   .food-display {
-    padding: 0 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .food-display-list {
+    gap: 24px;
+    row-gap: 40px;
+  }
+}
+
+/* Small tablets */
+@media (max-width: 900px) {
+  .food-display {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 750px) {
+  .food-display {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .food-display-list {
+    gap: 20px;
+    row-gap: 32px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  .food-display {
+    margin-left: 12px;
+    margin-right: 12px;
   }
 
   .food-display-list {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 24px;
-  }
-
-  /* Disable hover lift on touch devices */
-  .food-item:hover {
-    transform: none;
-    box-shadow: none;
-  }
-}
-
-/* ===== PHONES ===== */
-@media (max-width: 480px) {
-  .food-display {
-    padding: 0 16px;
-  }
-
-  .food-display-list {
-    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-  }
-}
-
-/* ===== VERY SMALL DEVICES ===== */
-@media (max-width: 360px) {
-  .food-display-list {
-    grid-template-columns: 1fr;
+    row-gap: 26px;
   }
 }

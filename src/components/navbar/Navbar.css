@@ -1,8 +1,10 @@
+/* =========================
+   NAVBAR BASE
+   ========================= */
+
 .navbar {
-  padding: 14px 0;
+  padding: 14px 50px;
   display: flex;
-  padding-left: 50px;
-  padding-right: 50px;
   justify-content: space-between;
   align-items: center;
   position: sticky;
@@ -10,16 +12,21 @@
   z-index: 100;
   transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.3s ease;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 /* When scrolled */
 .navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.5); /* transparent white glass */
+  background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* =========================
+   MENU
+   ========================= */
 
 .navbar-menu {
   display: flex;
@@ -28,7 +35,6 @@
   gap: 18px;
   color: #49557e;
   font-size: 15px;
-  transition: color 0.2s ease;
 }
 
 .navbar li {
@@ -40,18 +46,25 @@
   color: tomato;
 }
 
-.active {
+.navbar-menu li.active {
+  color: var(--accent);
   border-bottom: 2px solid tomato;
   padding-bottom: 2px;
-  color: tomato;
 }
+
+/* =========================
+   LOGO
+   ========================= */
 
 .logo {
   width: 140px;
   height: auto;
 }
 
-/* --- SEARCH BOX --- */
+/* =========================
+   SEARCH
+   ========================= */
+
 .search {
   display: flex;
   align-items: center;
@@ -98,7 +111,10 @@
   opacity: 1;
 }
 
-/* --- RIGHT SECTION --- */
+/* =========================
+   RIGHT SECTION
+   ========================= */
+
 .navbar-right {
   display: flex;
   align-items: center;
@@ -121,83 +137,120 @@
   color: tomato;
 }
 
-/* --- CART DOT --- */
+/* =========================
+   CART DOT
+   ========================= */
+
 .cart-icon {
   position: relative;
 }
 
 .cart-icon .dot {
-position: absolute;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 5px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
   color: #49557e;
-font-weight: bolder;
-font-size: xx-small;
+  font-weight: bold;
+  font-size: 9px;
   top: -10px;
   right: -8px;
 }
-.navbar {
-  background-color: var(--bg);
-  color: var(--text);
-}
-.navbar-menu li.active {
-  color: var(--accent);
-}
 
-@media (max-width: 750px) {
-  .navbar {
-    padding: 10px 16px;
-    gap: 10px;
-  }
+/* =========================
+   RESPONSIVE
+   ========================= */
 
-  /* Logo smaller */
+/* Tablet */
+@media (max-width: 1050px) {
   .logo {
-    width: 100px;
+    width: 130px;
   }
+  .navbar-menu {
+    gap: 16px;
+    font-size: 15px;
+  }
+  .navbar-right {
+    gap: 25px;
+  }
+}
 
-  /* Hide menu (for now) */
+@media (max-width: 900px) {
+  .logo {
+    width: 110px;
+  }
+  .navbar-menu {
+    gap: 14px;
+  }
+  .navbar-right {
+    gap: 18px;
+  }
+  .navbar button {
+    padding: 7px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 750px) {
   .navbar-menu {
     display: none;
   }
 
-  /* Search bar compact */
+  .navbar {
+    padding: 10px 16px;
+    backdrop-filter: blur(6px);
+  }
+
+  .logo {
+    width: 95px;
+  }
+
   .search {
-    width: 100%;
-    max-width: 160px;
-    padding: 3px 8px;
+    width: 150px;
+    padding: 4px 8px;
+    border-radius: 8px;
   }
 
   .search input {
     font-size: 13px;
   }
 
-  /* Right section tighter */
+  .search-img {
+    width: 16px;
+    height: 16px;
+  }
+
   .navbar-right {
     gap: 14px;
   }
 
   .navbar button {
-    padding: 6px 14px;
+    padding: 6px 16px;
     font-size: 13px;
   }
 
-  .cart-icon img {
-    width: 22px;
+  .cart-icon .dot {
+    top: -8px;
+    right: -6px;
+    font-size: 8px;
+    padding: 4px;
   }
 }
-@media (max-width: 480px) {
+
+/* Extra small devices */
+@media (max-width: 420px) {
   .navbar {
-    padding: 8px 12px;
+    padding: 8px 10px;
   }
 
   .logo {
-    width: 90px;
+    width: 85px;
   }
 
   .search {
-    display: none; /* optional but realistic */
+    width: 130px;
   }
 
   .navbar-right {
@@ -205,13 +258,14 @@ font-size: xx-small;
   }
 
   .navbar button {
-    padding: 5px 12px;
+    padding: 5px 14px;
     font-size: 12px;
   }
+}
 
-  .cart-icon .dot {
-    top: -6px;
-    right: -6px;
-    padding: 4px;
-  }
+/* Safety */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }

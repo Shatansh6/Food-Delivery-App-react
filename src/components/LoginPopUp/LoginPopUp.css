@@ -1,63 +1,152 @@
-.loginpopup{
-position: absolute;
-z-index: 1;
-width: 100%;
-height: 100%;
-background-color: #00000090;
-display: grid;
+/* =========================
+   LOGIN POPUP BASE
+   ========================= */
+
+.loginpopup {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;
+  display: grid;
 }
-.login-container{
-place-self: center;
-width: max(23vw,330px);
-color: #808080;
-background-color: white;
-display: flex;
-flex-direction: column;
-gap: 15px;
-padding: 25px 30px;
-border-radius: 8px;
-font-size: 14px;
-animation: fadeIn 0.5s;
+
+/* =========================
+   LOGIN CONTAINER
+   ========================= */
+
+.login-container {
+  place-self: center;
+  width: max(23vw, 330px);
+  max-width: 90vw;
+  color: #808080;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+  animation: fadeIn 0.5s;
 }
-.title{
+
+/* =========================
+   TITLE
+   ========================= */
+
+.title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: black;
 }
-.title img{
+
+.title img {
   width: 16px;
   cursor: pointer;
 }
-.login-input{
+
+/* =========================
+   INPUTS
+   ========================= */
+
+.login-input {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.login-input input{
+
+.login-input input {
   border: 1px solid rgb(81, 81, 81);
   padding: 10px;
   border-radius: 4px;
+  font-size: 14px;
 }
-.login-container button{
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.login-container button {
   padding: 10px;
   border-radius: 4px;
   color: white;
   background-color: tomato;
-  font-size:15px;
+  font-size: 15px;
   cursor: pointer;
 }
-.login-condition{
+
+/* =========================
+   CONDITIONS
+   ========================= */
+
+.login-condition {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   gap: 8px;
   margin-top: -10px;
+  font-size: 13px;
 }
-.login-condition input{
+
+.login-condition input {
   margin-top: 3px;
 }
-.loginpopup p span{
+
+/* =========================
+   LINKS
+   ========================= */
+
+.loginpopup p span {
   color: tomato;
   font-weight: 500;
   cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE FIXES
+   ========================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .login-container {
+    width: 340px;
+    padding: 22px 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .login-container {
+    width: 92vw;
+    padding: 20px 18px;
+    font-size: 13px;
+  }
+
+  .login-input input {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  .login-container button {
+    padding: 9px;
+    font-size: 14px;
+  }
+
+  .title img {
+    width: 14px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .login-container {
+    padding: 18px 14px;
+  }
+}
+
+/* Prevent overflow with keyboard */
+.login-container {
+  max-height: 90vh;
+  overflow-y: auto;
 }

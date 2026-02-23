@@ -1,78 +1,143 @@
+/* =========================
+   HEADER BASE
+   ========================= */
+
 .header {
-  width: 90%;
-    margin-left: 75px;
-  min-height: 420px;
-  height: 60vh;
-  max-height: 650px;
+  height: 34vw;
+  min-height: 320px;
+  max-height: 520px;
+  width: 100%;
   background: url('/header_img.png') no-repeat center;
-  background-size: cover;            /* FIXED */
+  background-size: contain;
   position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 0 8vw;
-  border-radius: 20px;
+  overflow: hidden;
 }
+
+/* =========================
+   CONTENT
+   ========================= */
 
 .header-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 18px;
-  max-width: 520px;
-  animation: fadeIn 1.2s ease;
+  text-align: left;
+  gap: 1.5vw;
+  max-width: 50%;
+  animation: fadeIn 3s;
 }
-
 
 .header-content h1 {
   font-weight: 700;
-  font-size: clamp(26px, 4vw, 46px);
-  color: #fff;
+  font-size: 45px;
+  color: white;
   line-height: 1.2;
 }
 
 .header-content p {
-  color: #f1f1f1;
-  font-size: 16px;
-  line-height: 1.5;
-  max-width: 420px;
+  color: white;
+  font-size: 1.3vw;
 }
-
 
 .header-content button {
   border: none;
-  background-color: #ffffff;
-  color: #555;
-
-  padding: 12px 28px;
-  font-size: 15px;
+  color: #747474;
   font-weight: 500;
-
+  padding: 14px 32px;
+  background-color: white;
+  font-size: 15px;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
 .header-content button:hover {
-  background-color: tomato;
-  color: #fff;
+  background-color: #ff6347;
+  color: white;
 }
 
+/* =========================
+   RESPONSIVE
+   ========================= */
 
-/* 🔹 Responsive Adjustments */
-@media (max-width: 600px) {
+/* Large tablets */
+@media (max-width: 1050px) {
   .header {
-    min-height: 340px;
-    height: auto;
-    padding: 60px 20px;
+    height: 40vw;
   }
 
   .header-content {
-    align-items: center;
-    text-align: center;
+    max-width: 60%;
+  }
+
+  .header-content h1 {
+    font-size: 36px;
+  }
+
+  .header-content p {
+    font-size: 15px;
+  }
+}
+
+/* Tablets / small laptops */
+@media (max-width: 900px) {
+  .header {
+    height: 45vw;
+  }
+
+  .header-content {
+    max-width: 70%;
+  }
+
+  .header-content h1 {
+    font-size: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 750px) {
+  .header {
+    height: auto;
+    min-height: 300px;
+    padding: 40px 16px;
+    background-size: cover;
+  }
+
+  .header-content {
+    max-width: 100%;
+    gap: 14px;
+  }
+
+  .header-content h1 {
+    font-size: 26px;
   }
 
   .header-content p {
     display: none;
   }
+
+  .header-content button {
+    padding: 12px 26px;
+    font-size: 14px;
+  }
 }
 
+/* Small phones */
+@media (max-width: 420px) {
+  .header {
+    min-height: 260px;
+    padding: 32px 12px;
+  }
+
+  .header-content h1 {
+    font-size: 22px;
+  }
+
+  .header-content button {
+    padding: 10px 22px;
+    font-size: 13px;
+  }
+}
