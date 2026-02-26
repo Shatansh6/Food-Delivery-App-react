@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home/Home";
-import PlaceOrder from "./pages/placeOrder/PlaceOrder";
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Cart from "./pages/cart/Cart";
 import Footer from "./components/Footer/Footer";
 import DownloadApp from "./components/DownloadApp/DownloadApp";
 import LoginPopUp from "./components/LoginPopUp/LoginPopUp";
 import Checkout from "./pages/Checkout/Checkout";
-
+import Payment from "./pages/Payment/Payment";
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -36,6 +36,7 @@ const App = () => {
         <Route path="/order" element={<PlaceOrder />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<Home searchText={searchText} />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
       <DownloadApp />
       <Footer />

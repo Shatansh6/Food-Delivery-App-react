@@ -1,0 +1,185 @@
+/* =========================
+   PAYMENT PAGE
+========================= */
+
+.payment-page {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.payment-page h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.payment-container {
+  display: flex;
+  gap: 30px;
+}
+
+/* =========================
+   PANELS
+========================= */
+
+.payment-methods,
+.payment-summary {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.payment-methods:hover,
+.payment-summary:hover {
+  transform: translateY(-3px);
+}
+
+.payment-methods {
+  flex: 1.2;
+}
+
+.payment-summary {
+  flex: 1;
+}
+
+/* =========================
+   PAYMENT OPTIONS
+========================= */
+
+.payment-methods h3 {
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.payment-methods label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.payment-methods label:hover {
+  background: #f7f7f7;
+}
+
+.payment-methods input[type="radio"] {
+  accent-color: #ff6347;
+  cursor: pointer;
+}
+
+/* =========================
+   ORDER SUMMARY
+========================= */
+
+.payment-summary h3 {
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.payment-summary p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.payment-summary hr {
+  margin: 18px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+.payment-summary h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* =========================
+   PAY BUTTON
+========================= */
+
+.pay-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.pay-btn:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.25);
+}
+
+.pay-btn:active {
+  transform: scale(0.98);
+}
+
+.pay-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .payment-container {
+    gap: 20px;
+  }
+
+  .payment-methods,
+  .payment-summary {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 700px) {
+  .payment-container {
+    flex-direction: column;
+  }
+
+  .payment-page {
+    padding: 20px 16px;
+  }
+
+  .payment-methods,
+  .payment-summary {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .payment-page {
+    padding: 16px 12px;
+  }
+
+  .payment-methods,
+  .payment-summary {
+    padding: 16px;
+  }
+
+  .pay-btn {
+    font-size: 15px;
+    padding: 13px;
+  }
+}
